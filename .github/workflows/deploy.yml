@@ -21,4 +21,4 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: /usr/share/nginx/html/
           SOURCE: "./"
-          ARGS: "-rlptgoD --delete"
+          ARGS: "-avz --delete --no-o --no-g"
