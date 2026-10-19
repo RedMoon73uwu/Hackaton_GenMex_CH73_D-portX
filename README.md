@@ -3,7 +3,7 @@
 ## Miembros del equipo:
 
 Angeles Elizabeth Candelario Alberto.
-Carlos Ignacio EstradaChairez.
+Carlos Ignacio Estrada Chairez.
 Eric Alexander Wences Pimentel.
 Sergio Estrada Vázquez.
 
