@@ -87,30 +87,26 @@ body {
     color: var(--cyan-hover) !important;
 }
 
-/* HERO SECTION */
-
+/* HERO SECTION Y CARRUSEL */
 .hero-section {
-    min-height: 420px;
-    background: linear-gradient(
-        135deg,
-        #0d1117 0%,
-        #123c49 65%,
-        #162849 100%
-    );
+    min-height: 480px;
+    background-color: var(--bg-dark);
 }
 
+/* Capa gradiente oscura sobre las imágenes para resaltar el texto */
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle at center,
-        rgba(51, 199, 216, 0.12) 0%,
-        transparent 70%
+    background: linear-gradient(
+        135deg,
+        rgba(13, 17, 23, 0.88) 0%,
+        rgba(18, 60, 73, 0.80) 65%,
+        rgba(22, 40, 73, 0.85) 100%
     );
     pointer-events: none;
+}
+
+/* Transición suave para el carrusel de fondo */
+#heroCarousel .carousel-item {
+    transition: opacity 0.8s ease-in-out;
 }
 
 /* TARJETAS */
