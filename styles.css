@@ -47,8 +47,8 @@ body {
 
 .hover-card:hover {
     transform: translateY(-6px);
-    border-color: #33c7d8 !important;
-    box-shadow: 0 10px 25px rgba(51, 199, 216, 0.5);
+    border-color: rgba(255, 193, 7, 0.5) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .service-icon {
