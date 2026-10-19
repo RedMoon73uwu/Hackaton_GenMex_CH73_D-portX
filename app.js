@@ -1,3 +1,5 @@
+
+
 const products = [
     { id: 1, name: "Tenis Nike Air Zoom Pegasus", category: "Calzado", price: 139.99, rating: 4.8, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60" },
     { id: 2, name: "Smartwatch Garmin Forerunner", category: "Tecnología", price: 299.99, rating: 4.9, image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500&auto=format&fit=crop&q=60" },
