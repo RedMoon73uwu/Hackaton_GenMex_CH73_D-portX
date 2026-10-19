@@ -214,3 +214,22 @@ body {
     border-color: var(--cyan-primary) !important;
     color: var(--cyan-primary) !important;
 }
+
+/* ICONOS */
+
+.service-icon {
+    width: 75px;
+    height: 75px;
+    background-color: #33c7d8 !important;
+    color: #0d1117 !important;
+    transition: transform 0.3s ease;
+}
+
+.service-icon i {
+    color: #0d1117 !important;
+}
+
+.hover-card:hover .service-icon {
+    transform: scale(1.12);
+    box-shadow: 0 0 20px rgba(51, 199, 216, 0.4);
+}
