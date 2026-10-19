@@ -1,10 +1,21 @@
-/* Estilos Globales - D-portx */
+
+/* =====================================
+   D-PORTX | IDENTIDAD VISUAL
+   ===================================== */
+
 :root {
-    --bg-dark: #0d0f12;
-    --card-bg: #161a1e;
-    --neon-yellow: #ffc107;
+    --bg-dark: #0d1117;
+    --card-bg: #161f29;
+    --cyan-primary: #33c7d8;
+    --cyan-hover: #53d1df;
+    --cyan-dark: #136163;
+    --cyan-secondary: #1a98a6;
+    --cyan-light: #b3ecf0;
+    --electric-blue: #4169e1;
     --text-muted: #a0a6b1;
 }
+
+/* ESTILOS GLOBALES */
 
 body {
     background-color: var(--bg-dark);
@@ -16,10 +27,76 @@ body {
     letter-spacing: 2px;
 }
 
+/* COLORES PERSONALIZADOS */
+
+.text-cyan {
+    color: var(--cyan-primary) !important;
+}
+
+.bg-cyan {
+    --bs-bg-opacity: 1;
+    background-color: rgba(51, 199, 216, var(--bs-bg-opacity)) !important;
+}
+
+.border-cyan {
+    border-color: var(--cyan-primary) !important;
+}
+
+/* BOTONES PRINCIPALES */
+
+.btn-cyan {
+    --bs-btn-color: #0d1117;
+    --bs-btn-bg: #33c7d8;
+    --bs-btn-border-color: #33c7d8;
+    --bs-btn-hover-color: #0d1117;
+    --bs-btn-hover-bg: #53d1df;
+    --bs-btn-hover-border-color: #53d1df;
+    --bs-btn-active-color: #0d1117;
+    --bs-btn-active-bg: #1fbdd2;
+    --bs-btn-active-border-color: #1fbdd2;
+    --bs-btn-disabled-color: #0d1117;
+    --bs-btn-disabled-bg: #33c7d8;
+    --bs-btn-disabled-border-color: #33c7d8;
+}
+
+/* BOTONES SECUNDARIOS */
+
+.btn-outline-cyan {
+    --bs-btn-color: #33c7d8;
+    --bs-btn-border-color: #33c7d8;
+    --bs-btn-hover-color: #0d1117;
+    --bs-btn-hover-bg: #33c7d8;
+    --bs-btn-hover-border-color: #33c7d8;
+    --bs-btn-active-color: #0d1117;
+    --bs-btn-active-bg: #1fbdd2;
+    --bs-btn-active-border-color: #1fbdd2;
+}
+
+/* NAVBAR */
+
+.navbar.bg-dark {
+    background-color: var(--card-bg) !important;
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--cyan-hover) !important;
+}
+
 /* HERO SECTION */
+
 .hero-section {
     min-height: 420px;
-    background: linear-gradient(135deg, #0d0f12 0%, #1a1e24 100%);
+    background: linear-gradient(
+        135deg,
+        #0d1117 0%,
+        #123c49 65%,
+        #162849 100%
+    );
 }
 
 .hero-overlay {
@@ -28,35 +105,73 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(255, 193, 7, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+        circle at center,
+        rgba(51, 199, 216, 0.12) 0%,
+        transparent 70%
+    );
     pointer-events: none;
 }
 
-/* TRANSICIONES Y HOVERS */
-.hover-scale {
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+/* TARJETAS */
 
-.hover-scale:hover {
-    transform: scale(1.05);
+.card.bg-dark {
+    background-color: var(--card-bg) !important;
 }
 
 .hover-card {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .hover-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(255, 193, 7, 0.5) !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--cyan-primary) !important;
+    box-shadow: 0 10px 25px rgba(51, 199, 216, 0.3);
 }
+
+/* PLAN DESTACADO */
+
+.card.border-cyan {
+    border: 2px solid var(--cyan-primary) !important;
+    box-shadow: 0 0 20px rgba(65, 105, 225, 0.15);
+}
+
+.card.border-cyan:hover {
+    box-shadow:
+        0 10px 30px rgba(51, 199, 216, 0.3),
+        0 0 18px rgba(65, 105, 225, 0.2);
+}
+
+/* ICONOS DE SERVICIOS */
 
 .service-icon {
     width: 60px;
     height: 60px;
 }
 
-/* ANIMACIONES */
+/* ANIMACIONES HOVER */
+
+.hover-scale {
+    transition: transform 0.25s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* BUSCADOR */
+
+.form-control:focus {
+    border-color: var(--cyan-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(51, 199, 216, 0.2);
+}
+
+/* ANIMACION CARRITO */
+
 @keyframes addPulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -66,6 +181,8 @@ body {
 .cart-bounce {
     animation: addPulse 0.4s ease-in-out;
 }
+
+/* ANIMACION PRODUCTOS */
 
 .product-card-enter {
     opacity: 0;
@@ -80,12 +197,24 @@ body {
     }
 }
 
-/* Scrollbar Carrito */
+/* SCROLLBAR CARRITO */
+
 #cartItemsList::-webkit-scrollbar {
     width: 6px;
 }
 
 #cartItemsList::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(51, 199, 216, 0.4);
     border-radius: 4px;
+}
+
+#cartItemsList::-webkit-scrollbar-thumb:hover {
+    background: var(--cyan-primary);
+}
+
+/* ALERTAS SWEETALERT2 */
+
+.swal2-icon.swal2-warning {
+    border-color: var(--cyan-primary) !important;
+    color: var(--cyan-primary) !important;
 }

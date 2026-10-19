@@ -65,7 +65,7 @@ function renderProducts(items) {
             <div class="card h-100 bg-dark border-secondary border-opacity-25 hover-card overflow-hidden">
                 <div class="position-relative overflow-hidden" style="height: 200px;">
                     <img src="${product.image}" class="card-img-top w-100 h-100 object-fit-cover" alt="${product.name}">
-                    <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold badge m-2">
+                    <span class="position-absolute top-0 end-0 bg-cyan text-dark fw-bold badge m-2">
                         <i class="fa-solid fa-star text-dark me-1"></i>${product.rating}
                     </span>
                 </div>
@@ -75,8 +75,8 @@ function renderProducts(items) {
                         <h3 class="h6 card-title fw-bold text-white mt-1 mb-2 text-truncate">${product.name}</h3>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-secondary border-opacity-25">
-                        <span class="fs-5 fw-bold text-warning">$${product.price.toFixed(2)}</span>
-                        <button class="btn btn-outline-warning btn-sm rounded-circle p-2 add-to-cart-btn" data-id="${product.id}" title="Agregar al carrito">
+                        <span class="fs-5 fw-bold text-cyan">$${product.price.toFixed(2)}</span>
+                        <button class="btn btn-outline-cyan btn-sm rounded-circle p-2 add-to-cart-btn" data-id="${product.id}" title="Agregar al carrito">
                             <i class="fa-solid fa-plus fs-6"></i>
                         </button>
                     </div>
@@ -100,11 +100,11 @@ function setupEventListeners() {
             if (e.target.tagName === 'BUTTON') {
                 const filter = e.target.dataset.filter;
                 Array.from(filterButtons.children).forEach(b => {
-                    b.classList.remove('btn-warning', 'text-dark', 'fw-bold', 'active');
+                    b.classList.remove('btn-cyan', 'text-dark', 'fw-bold', 'active');
                     b.classList.add('btn-outline-secondary');
                 });
                 e.target.classList.remove('btn-outline-secondary');
-                e.target.classList.add('btn-warning', 'text-dark', 'fw-bold', 'active');
+                e.target.classList.add('btn-cyan', 'text-dark', 'fw-bold', 'active');
 
                 renderProducts(filter === 'all' ? products : products.filter(p => p.category === filter));
             }
@@ -132,7 +132,7 @@ function setupEventListeners() {
             text: "Se eliminarán todos los productos seleccionados.",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#ffc107',
+            confirmButtonColor: '#33c7d8',
             cancelButtonColor: '#6c757d',
             confirmButtonText: 'Sí, vaciar',
             cancelButtonText: 'Cancelar',
@@ -152,7 +152,7 @@ function setupEventListeners() {
                 icon: 'error',
                 title: 'Carrito Vacío',
                 text: 'Agrega al menos un producto para proceder.',
-                confirmButtonColor: '#ffc107',
+                confirmButtonColor: '#33c7d8',
                 customClass: { confirmButton: 'text-dark' }
             });
             return;
@@ -163,7 +163,7 @@ function setupEventListeners() {
             icon: 'success',
             title: '¡Gracias por tu compra!',
             text: 'Tu pedido ha sido procesado exitosamente.',
-            confirmButtonColor: '#ffc107',
+            confirmButtonColor: '#33c7d8',
             customClass: { confirmButton: 'text-dark' }
         }).then(() => {
             cart = [];
@@ -268,7 +268,7 @@ function updateCartUI() {
             <img src="${item.image}" class="rounded object-fit-cover me-2" width="50" height="50" alt="${item.name}">
             <div class="flex-grow-1 min-w-0 me-2">
                 <h4 class="h6 text-white text-truncate mb-1">${item.name}</h4>
-                <div class="text-warning fw-bold small">$${(item.price * item.quantity).toFixed(2)}</div>
+                <div class="text-cyan fw-bold small">$${(item.price * item.quantity).toFixed(2)}</div>
             </div>
             <div class="d-flex align-items-center gap-1">
                 <button class="btn btn-sm btn-outline-secondary py-0 px-2 btn-decrease" data-id="${item.id}">-</button>

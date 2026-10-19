@@ -14,8 +14,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary border-opacity-25 shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
-                <i class="fa-solid fa-bolt text-warning fs-3"></i>
-                <span class="fs-4 tracking-wider">D-<span class="text-warning">PORTX</span></span>
+                <i class="fa-solid fa-bolt text-cyan fs-3"></i>
+                <span class="fs-4 tracking-wider">D-<span class="text-cyan">PORTX</span></span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
                     <li class="nav-item"><a class="nav-link active fw-medium" href="catalogo.html">Catálogo</a></li>
                     <li class="nav-item"><a class="nav-link fw-medium" href="servicios.html">Servicios</a></li>
                 </ul>
-                <button class="btn btn-outline-warning position-relative rounded-pill px-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                <button class="btn btn-outline-cyan position-relative rounded-pill px-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
                     <i class="fa-solid fa-cart-shopping me-2"></i>Carrito
                     <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                 </button>
@@ -52,7 +52,7 @@
                         <input type="text" id="searchInput" class="form-control bg-black text-white border-secondary border-opacity-25" placeholder="Buscar por nombre...">
                     </div>
                     <div class="d-flex flex-wrap gap-2" id="filterButtons">
-                        <button class="btn btn-sm btn-warning rounded-pill px-3 active text-dark fw-bold" data-filter="all">Todos</button>
+                        <button class="btn btn-sm btn-cyan rounded-pill px-3 active text-dark fw-bold" data-filter="all">Todos</button>
                         <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Calzado">Calzado</button>
                         <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Tecnología">Tecnología</button>
                         <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Fitness">Fitness</button>
@@ -71,7 +71,7 @@
     <!-- OFFCANVAS CARRITO -->
     <div class="offcanvas offcanvas-end bg-dark text-white border-start border-secondary border-opacity-25" tabindex="-1" id="cartOffcanvas">
         <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
-            <h5 class="offcanvas-title fw-bold"><i class="fa-solid fa-cart-shopping text-warning me-2"></i> Tu Carrito</h5>
+            <h5 class="offcanvas-title fw-bold"><i class="fa-solid fa-cart-shopping text-cyan me-2"></i> Tu Carrito</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between">
@@ -79,10 +79,10 @@
             <div class="border-top border-secondary border-opacity-25 pt-3">
                 <div class="d-flex justify-content-between align-items-center mb-3 fs-5">
                     <span class="fw-bold">Total:</span>
-                    <span id="cartTotal" class="fw-bold text-warning fs-4">$0.00</span>
+                    <span id="cartTotal" class="fw-bold text-cyan fs-4">$0.00</span>
                 </div>
                 <div class="d-grid gap-2">
-                    <button id="checkoutBtn" class="btn btn-warning fw-bold py-2 shadow text-dark">Finalizar Compra</button>
+                    <button id="checkoutBtn" class="btn btn-cyan fw-bold py-2 shadow text-dark">Finalizar Compra</button>
                     <button id="clearCartBtn" class="btn btn-outline-danger btn-sm py-1">Vaciar Carrito</button>
                 </div>
             </div>
