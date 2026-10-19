@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | D-portx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary border-opacity-25 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+                <i class="fa-solid fa-bolt text-warning fs-3"></i>
+                <span class="fs-4 tracking-wider">D-<span class="text-warning">PORTX</span></span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-medium" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="servicios.html">Servicios</a></li>
+                </ul>
+                <button class="btn btn-outline-warning position-relative rounded-pill px-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                    <i class="fa-solid fa-cart-shopping me-2"></i>Carrito
+                    <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER CATÁLOGO -->
+    <header class="bg-dark py-4 border-bottom border-secondary border-opacity-25 mb-4">
+        <div class="container text-center text-md-start">
+            <h1 class="fw-bold text-uppercase">Catálogo Completo</h1>
+            <p class="text-secondary m-0">Explora nuestros 30 artículos deportivos más vendidos</p>
+        </div>
+    </header>
+
+    <!-- MAIN CATÁLOGO -->
+    <main class="container mb-5">
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 bg-dark p-3 rounded border border-secondary border-opacity-25">
+                    <div class="input-group" style="max-width: 400px;">
+                        <span class="input-group-text bg-black border-secondary border-opacity-25 text-secondary"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" id="searchInput" class="form-control bg-black text-white border-secondary border-opacity-25" placeholder="Buscar por nombre...">
+                    </div>
+                    <div class="d-flex flex-wrap gap-2" id="filterButtons">
+                        <button class="btn btn-sm btn-warning rounded-pill px-3 active text-dark fw-bold" data-filter="all">Todos</button>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Calzado">Calzado</button>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Tecnología">Tecnología</button>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Fitness">Fitness</button>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Ropa">Ropa</button>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill px-3" data-filter="Accesorios">Accesorios</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row g-4" id="productsGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- OFFCANVAS CARRITO -->
+    <div class="offcanvas offcanvas-end bg-dark text-white border-start border-secondary border-opacity-25" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+            <h5 class="offcanvas-title fw-bold"><i class="fa-solid fa-cart-shopping text-warning me-2"></i> Tu Carrito</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <div id="cartItemsList" class="d-flex flex-column gap-3 overflow-y-auto mb-3 pe-1"></div>
+            <div class="border-top border-secondary border-opacity-25 pt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3 fs-5">
+                    <span class="fw-bold">Total:</span>
+                    <span id="cartTotal" class="fw-bold text-warning fs-4">$0.00</span>
+                </div>
+                <div class="d-grid gap-2">
+                    <button id="checkoutBtn" class="btn btn-warning fw-bold py-2 shadow text-dark">Finalizar Compra</button>
+                    <button id="clearCartBtn" class="btn btn-outline-danger btn-sm py-1">Vaciar Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-secondary py-4 border-top border-secondary border-opacity-25">
+        <div class="container text-center">
+            <p class="mb-0 small">&copy; 2026 D-portx Inc. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
