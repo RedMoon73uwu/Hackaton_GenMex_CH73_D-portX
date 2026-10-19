@@ -1,5 +1,3 @@
-
-
 const products = [
     { id: 1, name: "Tenis Nike Air Zoom Pegasus", category: "Calzado", price: 139.99, rating: 4.8, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60" },
     { id: 2, name: "Smartwatch Garmin Forerunner", category: "Tecnología", price: 299.99, rating: 4.9, image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=500&auto=format&fit=crop&q=60" },
@@ -20,7 +18,7 @@ const products = [
     { id: 17, name: "Guantes de Gimnasio con Muñequera", category: "Accesorios", price: 22.50, rating: 4.3, image: "https://imgs.search.brave.com/UM7UVMCyBvqS3mdO4192H6fKR_EYtE6KZdAvlB7SC2A/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzgxOVBKWEh5MVFM/LmpwZw" },
     { id: 18, name: "Gorra Deportiva Reflectante", category: "Accesorios", price: 18.00, rating: 4.5, image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&auto=format&fit=crop&q=60" },
     { id: 19, name: "Tenis de Basquetbol Jordan Retro", category: "Calzado", price: 189.99, rating: 4.9, image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60" },
-    { id: 20, name: "Sudadera Térmica con Capucha", category: "Ropa", price: 54.99, rating: 4.7, image: "https://imgs.search.brave.com/8hKkHlEFB-KJ3rnLOC--vmKsyK5cYt6SMBytx0feGSI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aG9rb3Nwb3J0LmNv/bS9jZG4vc2hvcC9m/aWxlcy8wMS1zdWRh/ZGVyYS10ZXJtaWNh/LW11amVyLWFtYXJp/bGxvLXNlaW5hLmpw/Zz92PTE3NjgyMTEw/Mjkmd2lkdGg9MTA4/MA    " },
+    { id: 20, name: "Sudadera Térmica con Capucha", category: "Ropa", price: 54.99, rating: 4.7, image: "https://imgs.search.brave.com/8hKkHlEFB-KJ3rnLOC--vmKsyK5cYt6SMBytx0feGSI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aG9rb3Nwb3J0LmNv/bS9jZG4vc2hvcC9m/aWxlcy8wMS1zdWRh/ZGVyYS10ZXJtaWNh/LW11amVyLWFtYXJp/bGxvLXNlaW5hLmpw/Zz92PTE3NjgyMTEw/Mjkmd2lkdGg9MTA4/MA" },
     { id: 21, name: "Rodillo de Espuma Foam Roller", category: "Fitness", price: 25.00, rating: 4.8, image: "https://imgs.search.brave.com/DpEMiFtBm4fWeHpuRISzr2VMthNVLy260Z70a99SouA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aWVu/ZGEuZWZpc2lvLmVz/L2ltZy9wcm9kdWN0/cy81MWxjQzA4Q0hE/TC5qcGc" },
     { id: 22, name: "Lentes Deportivos Polarizados UV400", category: "Accesorios", price: 39.99, rating: 4.6, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&auto=format&fit=crop&q=60" },
     { id: 23, name: "Camiseta Compresión Manga Larga", category: "Ropa", price: 32.99, rating: 4.6, image: "https://imgs.search.brave.com/3uANDroj70qB1QhrXcLWDTFhX_BpaHXDxC-ARUjqMjg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzgwNDIyOC1DQlQ4/NjkzNTQwNjI3OF8w/NzIwMjUtRS1wbGF5/ZXJhLWxpY3JhLWRl/cG9ydGl2YS1ob21i/cmUtbWFuZ2EtbGFy/Z2EtY29tcHJlc2lv/bi0yLXB6cy53ZWJw" },
@@ -52,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateCartUI();
     setupEventListeners();
+
+    const btnCalcular = document.getElementById('calcularIMC');
+    if (btnCalcular) {
+        btnCalcular.addEventListener('click', calcularIMC);
+    }
 });
 
 function renderProducts(items) {
@@ -280,4 +283,78 @@ function updateCartUI() {
             </div>
         </div>
     `).join('');
+}
+
+// FUNCIONALIDAD CALCULADORA DE IMC
+function calcularIMC() {
+    const pesoInput = document.getElementById('peso');
+    const alturaInput = document.getElementById('altura');
+    const resultadoDiv = document.getElementById('resultadoIMC');
+
+    const peso = parseFloat(pesoInput.value);
+    const altura = parseFloat(alturaInput.value);
+
+    if (!peso || peso <= 0 || !altura || altura <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Datos Incompletos',
+            text: 'Por favor, ingresa un peso y una altura válidos.',
+            confirmButtonColor: '#33c7d8',
+            customClass: { confirmButton: 'text-dark' }
+        });
+        return;
+    }
+
+    // Cálculo de IMC
+    const imc = peso / (altura * altura);
+    let clasificacion = '';
+    let badgeClass = '';
+
+    if (imc < 18.5) {
+        clasificacion = 'Bajo peso';
+        badgeClass = 'bg-warning text-dark';
+    } else if (imc >= 18.5 && imc < 24.9) {
+        clasificacion = 'Peso normal';
+        badgeClass = 'bg-success text-white';
+    } else if (imc >= 25 && imc < 29.9) {
+        clasificacion = 'Sobrepeso';
+        badgeClass = 'bg-warning text-dark';
+    } else {
+        clasificacion = 'Obesidad';
+        badgeClass = 'bg-danger text-white';
+    }
+
+    // Estimación de talla de camisa/playera deportiva
+    let tallaCamisa = 'M';
+    if (peso < 55) {
+        tallaCamisa = 'XS';
+    } else if (peso >= 55 && peso < 68) {
+        tallaCamisa = 'S';
+    } else if (peso >= 68 && peso < 80) {
+        tallaCamisa = 'M';
+    } else if (peso >= 80 && peso < 93) {
+        tallaCamisa = 'L';
+    } else if (peso >= 93 && peso < 108) {
+        tallaCamisa = 'XL';
+    } else {
+        tallaCamisa = 'XXL';
+    }
+
+    // Renderizar resultados en el DOM (sin icono ni emoji al lado de la talla)
+    resultadoDiv.className = 'mt-4 p-3 rounded text-center bg-black bg-opacity-50 border border-secondary border-opacity-25';
+    resultadoDiv.innerHTML = `
+        <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-6 border-end border-secondary border-opacity-25">
+                <div class="fs-7 text-secondary mb-1 text-uppercase fw-semibold">Tu IMC</div>
+                <div class="display-6 fw-bold text-cyan mb-2">${imc.toFixed(1)}</div>
+                <span class="badge ${badgeClass} fs-6 px-3 py-1 fw-semibold rounded-pill">${clasificacion}</span>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="fs-7 text-secondary mb-1 text-uppercase fw-semibold">Talla sugerida</div>
+                <div class="display-6 fw-bold text-white mb-1">${tallaCamisa}</div>
+                <span class="text-secondary small d-block">Ropa deportiva</span>
+            </div>
+        </div>
+    `;
+    resultadoDiv.classList.remove('d-none');
 }

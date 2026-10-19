@@ -45,7 +45,7 @@
         </div>
     </header>
 
-    <!-- PLANES DE SERVICIOS -->
+    <!-- PLANES DE SERVICIOS Y CALCULADORA -->
     <main class="container mb-5">
         <div class="row g-4">
             <div class="col-md-4">
@@ -79,6 +79,40 @@
                 </div>
             </div>
         </div>
+
+        <!-- SECCIÓN CALCULADORA DE IMC -->
+        <section class="mt-5 pt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card bg-dark border-secondary border-opacity-25 p-4 rounded-3 shadow hover-card">
+                        <div class="text-center mb-4">
+                            <i class="fa-solid fa-calculator text-cyan fs-1 mb-2"></i>
+                            <h2 class="h3 fw-bold text-uppercase">Calculadora de <span class="text-cyan">IMC</span></h2>
+                            <p class="text-secondary small">Calcula tu Índice de Masa Corporal y conoce tu condición física actual.</p>
+                        </div>
+
+                        <form id="imcForm" onsubmit="event.preventDefault();">
+                            <div class="mb-3">
+                                <label for="peso" class="form-label text-light fw-medium">Peso (kg)</label>
+                                <input type="number" id="peso" step="0.1" min="1" class="form-control bg-black text-white border-secondary border-opacity-25" placeholder="Ej. 70" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="altura" class="form-label text-light fw-medium">Altura (m)</label>
+                                <input type="number" id="altura" step="0.01" min="0.5" max="2.5" class="form-control bg-black text-white border-secondary border-opacity-25" placeholder="Ej. 1.75" required>
+                            </div>
+
+                            <button type="button" id="calcularIMC" class="btn btn-cyan w-100 fw-bold py-2 shadow-sm text-dark">
+                                Calcular IMC
+                            </button>
+                        </form>
+
+                        <!-- Resultado -->
+                        <div id="resultadoIMC" class="mt-4 p-3 rounded text-center d-none border border-secondary border-opacity-25"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- OFFCANVAS CARRITO -->
