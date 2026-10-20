@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/logo.png"> 
 </head>
 <body>
 
@@ -14,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary border-opacity-25 shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
-                <i class="fa-solid fa-bolt text-cyan fs-3"></i>
+                <img src="/logo.svg" alt="DportX logo" class="logo-icon">
                 <span class="fs-4 tracking-wider">D-<span class="text-cyan">PORTX</span></span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -34,11 +37,9 @@
         </div>
     </nav>
 
-    <!-- HEADER CATÁLOGO -->
-    <header class="bg-dark py-4 border-bottom border-secondary border-opacity-25 mb-4">
+    <!-- HEADER CATÁLOGO PARA ESPACIADO -->
+    <header class="bg-bluePower py-4 border-bottom border-secondary border-opacity-25 mb-4">
         <div class="container text-center text-md-start">
-            <h1 class="fw-bold text-uppercase">Catálogo Completo</h1>
-            <p class="text-secondary m-0">Explora nuestros 30 artículos deportivos más vendidos</p>
         </div>
     </header>
 
@@ -46,7 +47,7 @@
     <main class="container mb-5">
         <div class="row g-4">
             <div class="col-12">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 bg-dark p-3 rounded border border-secondary border-opacity-25">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 bg-bluePower p-3 rounded border border-secondary border-opacity-25">
                     <div class="input-group" style="max-width: 400px;">
                         <span class="input-group-text bg-black border-secondary border-opacity-25 text-secondary"><i class="fa-solid fa-magnifying-glass"></i></span>
                         <input type="text" id="searchInput" class="form-control bg-black text-white border-secondary border-opacity-25" placeholder="Buscar por nombre...">

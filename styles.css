@@ -11,7 +11,7 @@
     --cyan-dark: #136163;
     --cyan-secondary: #1a98a6;
     --cyan-light: #b3ecf0;
-    --electric-blue: #4169e1;
+    --electric-blue: #303f6b;
     --text-muted: #a0a6b1;
 }
 
@@ -36,6 +36,12 @@ body {
 .bg-cyan {
     --bs-bg-opacity: 1;
     background-color: rgba(51, 199, 216, var(--bs-bg-opacity)) !important;
+}
+
+/*HICE ESTA CLASE PARA ADAPTAR LOS COLORES DE LA BARRA DE BUSQUEDA EN CATALOGO */
+.bg-powerBlue {
+    --bs-bg-opacity: 1;
+    background-color: rgba(29, 38, 66, var(--bs-bg-opacity)) !important;
 }
 
 .border-cyan {
@@ -232,4 +238,34 @@ body {
 .hover-card:hover .service-icon {
     transform: scale(1.12);
     box-shadow: 0 0 20px rgba(51, 199, 216, 0.4);
+}
+
+/* SEPARACIÓN DEL NAVBAR Y MARCADOR CIRCULAR PARA PÁGINA ACTIVA */
+.navbar-nav {
+    gap: 3rem !important; /* Separación ampliada un 300% entre elementos */
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--cyan-primary);
+    border-radius: 50%;
+    margin-top: 4px;
+    box-shadow: 0 0 10px var(--cyan-primary);
+}
+
+/*AJUSTES PARA EL LOGO*/
+.logo-icon {
+    height: 2rem;
+    width: auto;
+    vertical-align: middle;
 }
